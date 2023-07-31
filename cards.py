@@ -9,77 +9,36 @@ print("The shuffled list of cards is as follows , pick a card from the list, and
 candidate_cards=list_of_cards[:21]
 print(candidate_cards)
 global deck1,deck2,deck3
-deck1=list()
-deck2=list()
-deck3=list()
-#important we cannot use two arguments while skiiping some set of values , if we have to skip some set of values , then we have to use 3 arguments
-for i in range(0,19,3):
-    deck1.append(candidate_cards[i])
-    deck2.append(candidate_cards[i+1])
-    deck3.append(candidate_cards[i+2])
-dec1_dupl=deck1[:]
-dec2_dupl=deck2[:]
-dec3_dupl=deck3[:]
-random.shuffle(dec1_dupl)
-random.shuffle(dec2_dupl)
-random.shuffle(dec3_dupl)
-print("In which of the following decks , is your card, Input the deck Number")
-print(f"Deck 1 is as ,{dec1_dupl}")
-print(f"Deck 2 is as , {dec2_dupl}")
-print(f"Deck 3 is as, {dec3_dupl}")
-decknumber_1=int(input())
-deck_to_be_kept_up="deck"+str(decknumber_1)
-candidate_cards=globals()[deck_to_be_kept_up]
-for i in range(3):
-    if i+1==decknumber_1:
-        continue
-    candidate_cards=candidate_cards+globals()["deck"+str(i+1)]
+global deck_number_1
+for k in range(3):
+    deck1=list()
+    deck2=list()
+    deck3=list()
+    #important we cannot use two arguments while skipping some set of values , if we have to skip some set of values , then we have to use 3 arguments
+    for i in range(0,19,3):
+        deck1.append(candidate_cards[i])
+        deck2.append(candidate_cards[i+1])
+        deck3.append(candidate_cards[i+2])
+    dec1_dupl=deck1[:]
+    dec2_dupl=deck2[:]
+    dec3_dupl=deck3[:]
+    random.shuffle(dec1_dupl)
+    random.shuffle(dec2_dupl)
+    random.shuffle(dec3_dupl)
+    print("In which of the following decks , is your card, Input the deck Number")
+    print(f"Deck 1 is as ,{dec1_dupl}")
+    print(f"Deck 2 is as , {dec2_dupl}")
+    print(f"Deck 3 is as, {dec3_dupl}")
+    decknumber_1=int(input())
+    deck_to_be_kept_up="deck"+str(decknumber_1)
+    candidate_cards=globals()[deck_to_be_kept_up]
+    for i in range(3):
+        if i+1==decknumber_1:
+            continue
+        candidate_cards=candidate_cards+globals()["deck"+str(i+1)]
 #Remember to comment away this line while showing the trick
 print(candidate_cards)
-deck1=list()
-deck2=list()
-deck3=list()
-for i in range(0,19,3):
-    deck1.append(candidate_cards[i])
-    deck2.append(candidate_cards[i+1])
-    deck3.append(candidate_cards[i+2])
-dec1_dupl=deck1[:]
-dec2_dupl=deck2[:]
-dec3_dupl=deck3[:]
-random.shuffle(dec1_dupl)
-random.shuffle(dec2_dupl)
-random.shuffle(dec3_dupl)
-print("In which of the following decks , is your card, Input the deck number")
-print(f"Deck 1 is as ,{dec1_dupl}")
-print(f"Deck 2 is as , {dec2_dupl}")
-print(f"Deck 3 is as , {dec3_dupl}")
-deck_number_2=int(input())
-#Whatever the deck is chosen now , the second last card of that deck is the card if the deck is 2 or 3 , otherwise the third last card of deck 1 is the card
-candidate_cards=globals()["deck"+str(deck_number_2)]
-for i in range(3):
-    if i+1==deck_number_2:
-        continue
-    candidate_cards=candidate_cards+globals()["deck"+str(i+1)]
-print(candidate_cards)
-deck1=list()
-deck2=list()
-deck3=list()
-for i in range(0,19,3):
-    deck1.append(candidate_cards[i])
-    deck2.append(candidate_cards[i+1])
-    deck3.append(candidate_cards[i+2])
-dec1_dupl=deck1[:]
-dec2_dupl=deck2[:]
-dec3_dupl=deck3[:]
-random.shuffle(dec1_dupl)
-random.shuffle(dec2_dupl)
-random.shuffle(dec3_dupl)
-print("In which of the following decks , is your card , Input the the deck number")
-print(f"Deck 1 is as , {dec1_dupl}")
-print(f"Deck 2 is as , {dec2_dupl}")
-print(f"Deck 3 is as , {dec3_dupl}")
-deck_number_3=int(input())
-if(deck_number_3 ==1):
+if(decknumber_1 ==1):
     print(deck1[0])
 else:
-    print(globals()["deck"+str(deck_number_3)][0])
+    print(globals()["deck"+str(deck_number_1)][0])
